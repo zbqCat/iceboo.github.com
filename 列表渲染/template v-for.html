@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="demo">
+			<ul>
+				<!-- template 用于渲染一个包含多个元素的块 -->
+			<template v-for='item in items'>
+				<li>{{item.msg}}</li>
+				<li class="box">123</li>
+			</template>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var data = {
+			items:[
+				{msg:'a'},
+				{msg:'b'},
+				{msg:'c'}
+			]
+		}
+		
+		new Vue({
+			el:'#demo',
+			data:data
+		})
+	</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    <script type="text/javascript" src="../vue.min.js"></script>
+    </head>
+    <body>
+    <div id="demo">
+      <!-- lazy在change事件而不是input事件中更新 -->
+      <input type="text" v-model = 'lazyName' lazy>
+      <span>{{lazyName}}</span>
+
+      <!-- number 自动将用户的输入保持为数字 -->
+      <input type="text" v-model='num' number/>
+      <span>{{num}}</span>
+
+      <!-- debounce 设置一个最小延迟，在ajax中比较有用 -->
+      <input type='text' v-model='debounce1' debounce='1000'>
+      <span>{{debounce1}}</span>
+      <!-- debounce不会延迟input事件：它延迟写入底层数据，因此应该用$watch响应数据的变化 -->
+    </div>
+    <script type="text/javascript">
+      new Vue({
+        el:'#demo'
+      })
+    </script>
+    </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="../vue.min.js"></script>
+    </head>
+    <body>
+    <div id="demo">
+      <!-- v-model在表单控件元素上实现双向数据绑定 -->
+      <input type="text" v-model = 'keyName' v-on:keyup.enter='show' />
+      <p> {{keyName}} </p>
+
+      <!-- checkbox -->
+      <input type="checkbox" v-model = 'selected' id="ckbox">
+      <label for="ckbox"> {{selected}}</label>
+      <br />
+
+      <!-- 多个复选框绑定到同一个数组中 -->
+
+      <input type="checkbox" value="jone" v-model = 'ckedNames' id="jone">
+      <label for="jone">jone</label>
+      <input type="checkbox" value="jack" v-model = 'ckedNames' id="jack">
+      <label for="jack">jack</label>
+      <input type="checkbox" value="json" v-model = 'ckedNames' id="json">
+      <label for="json">json</label>
+      <br />
+      <span> CheckName: {{ckedNames | json }} </span>
+      <br />
+
+      <!-- radio表单 -->
+      <input type="radio" id="one" value="one" v-model = 'picked'>
+      <label for="one">one</label>
+      <input type="radio" id="two" value="two" v-model = 'picked'>
+      <label for="two">two</label>
+      <span> picked:{{picked}} </span>
+
+      <div>
+        <!-- Select 单选 -->
+        <select v-model = 'slted'>
+          <option selected>A</option>
+          <option>B</option>
+          <option>C</option>
+        </select>
+        <span> selected: {{slted}}</span>
+        <!-- Select 多选 -->
+        <br />
+        <select v-model = 'slted1' multiple>
+          <option selected>A</option>
+          <option>B</option>
+          <option>C</option>
+        </select>
+        <span> selected: {{slted1 | json}}</span>
+      </div>
+    </div>
+
+    <script>
+      var data = {
+        keyName:'',
+        age:23,
+        selected:true,
+        ckedNames:[],
+        picked:true
+      }
+
+      var vm = new Vue({
+        el:'#demo',
+        data:data,
+        methods:{
+          show:function(){
+            console.log(this.keyName)
+          }
+
+        }
+      })
+    </script>
+    </body>
+</html>

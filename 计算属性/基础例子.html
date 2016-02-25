@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="demo">
+			a = {{a}}, b = {{b}}
+			<input type="button" @click='add' value="a+1"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+	var vm = 	new Vue({
+			el:'#demo',
+			data:{
+				a:1,
+			},
+			// 一个计算属性的 getter
+			computed:{
+				b:function(){
+					return this.a + 1
+				}
+			},
+			methods:{
+				add:function(){				
+					this.a ++
+				}
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="demo">
+			<p v-if='ok'>ok</p>
+			<p v-else>else</p>
+			
+			<!-- 可以把多个元素绑定到template里，不会渲染这个标签-->
+			<template v-if='yes'>
+				<h3>title</h3>
+				<p>ok</p>
+				<p>ok2</p>
+			</template>
+			
+			<!-- v-show 指令 -->
+			
+			<p v-show='no'>v-show</p>
+			
+			<!-- v-else 指令-->
+			<!-- v-else 元素必须立即跟在 v-if 或 v-show 元素的后面——否则它不能被识别-->
+			<p v-else> v-hide </p>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		var data = {
+			ok:1,
+			yes:1,
+			no:0
+		}
+		var vm = new Vue({
+			el:'#demo',
+			data:data
+		})
+	</script>
+</html>

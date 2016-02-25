@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="../vue.min.js"></script>
+    </head>
+    <body>
+      <div id="demo">
+        <ul>
+          <!-- 也可以用v-for遍历对象 -->
+          <li v-for="value in obj">
+            {{$key}} : {{value}}
+          </li>
+        </ul>
+
+        <!-- 也可以给对象的键提供一个别名 -->
+        <div v-for = '(key,value) in obj'>
+          {{key}} : {{value}}
+        </div>
+        <br>
+
+        <!-- v-for也可以提供一个整数。while循环 -->
+        <div>
+          <span v-for='k in 5'>
+            {{k}}
+          </span>
+        </div>
+      </div>
+      <script type="text/javascript">
+        var data = {
+          obj:{
+            FirstName:'zbq',
+            SecondName:'zbq_cat',
+            LastName:'Iceboo',
+          }
+        }
+        var vm = new Vue({
+            el:'#demo',
+            data:data
+        })
+      </script>
+    </body>
+</html>

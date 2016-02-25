@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="demo">
+			<input type="text" v-model = 'msg' />
+			<br />
+			<!-- 只绑定一次 -->
+			<span>Hello {{*msg}} !</span>		
+			<br />
+			<!-- 单向绑定 -->
+			<span>Hello {{msg}} !</span>
+			<br />
+			<!-- 以html标签的形式插入 -->
+			<span>Hello {{{msg}}} !</span>
+			<br />
+			<!-- 也可以绑定在attr属性中 -->
+			<span class="item-{{msg}}">item-{{msg}}</span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		new Vue({
+			el:'#demo',
+			data:{
+				msg:'<i>zbq</i>'
+			}
+		})
+	</script>
+</html>

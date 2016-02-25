@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../vue.min.js"></script>
+    </head>
+    <body>
+    <div id="demo">
+        <button v-on:click='say("Hi !",$event)'>Hi</button>
+        <button v-on:click="say('怎么传参数？')">{{name}}</button>
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el:'#demo',
+        data:{
+          name:'zbq'
+        },
+        methods:{
+          say:function(msg,event){
+            alert(msg)
+            // 也可以传入原生event，现在可以访问原生方法
+            event.preventDefault()
+          }
+        }
+      })
+    </script>
+    </body>
+</html>

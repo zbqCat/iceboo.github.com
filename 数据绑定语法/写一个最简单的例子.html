@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<div id="example">
+		<input type="text" v-model = 'name' />
+		<br />
+		<p> {{name}}</p>
+	</div>
+	<script type="text/javascript">
+		var data = {name : 'zbq'}
+		var example = new Vue({
+			el:'#example',
+			data:data,
+			methods:{},
+			ready:function(){
+				console.log('ready')
+			},
+			created:function(){
+				console.log('created')
+			},
+			
+		})
+		example.$watch('name',function(n,o){
+			
+		})
+	</script>
+	</body>
+</html>

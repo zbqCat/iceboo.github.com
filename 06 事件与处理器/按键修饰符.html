@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+          body{
+            font-family: -webkit-pictograph,monaca;
+          }
+        </style>
+        <script type="text/javascript" src="../vue.min.js"></script>
+    </head>
+    <body>
+    <div id="demo">
+      <input type="text" v-on:keyup.13='doThis' v-model='name' />
+
+      <!-- 常用按键别名 -->
+      <ul>
+        <li v-for=" key in keyname">
+          {{key}}
+        </li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+
+      var data = {
+        name:'',
+        age:23,
+        keyname:[
+          'enter','tab','delete','esc','space','up','down','left','right'
+        ]
+      }
+
+      var vm = new Vue({
+        el:'#demo',
+        data:data,
+        methods:{
+          doThis:function(){
+            console.log(this.name)
+          }
+        }
+      })
+    </script>
+    </body>
+
+</html>

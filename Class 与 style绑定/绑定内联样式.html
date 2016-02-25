@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title><script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="demo">
+			<div :style="styleObj">hello vue.js</div>	
+		
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		var data = {
+			styleObj:{
+				color:'red',
+				border:'2px solid #ccc'
+			}
+		}
+	
+		var vm = new Vue({
+			el:'#demo',
+			data:data
+		})
+	</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="../vue.min.js"></script>
+    </head>
+    <body>
+    <div id="demo">
+      <!-- 阻止单击事件冒泡 -->
+      <button v-on:click.stop='doThis'>doThis</button>
+
+      <!-- 提交事件不在重载页面 -->
+      <button @submit.prevent='onSubmit'>onSubmit</button>
+
+      <!-- 修饰符可以串联 -->
+      <input type="buttom" v-onclick.stop.prevent ='doThat' value="doThat" >
+
+      <!-- 只有修饰符 -->
+      <form v-on:click.stop.prevent></form>
+
+      <!-- 添加了两个额外的修饰符 -->
+
+      <!-- 添加事件监听器使用  captrue 模式 -->
+      <button v-on:click.captrue='doThis'>doThis</button>
+
+      <!-- 只有事件在该元素（而不是子元素）触发时触发回调事件 -->
+      <button v-on:click.self='doThat'>doThat</button>
+    </div>
+    </body>
+</html>

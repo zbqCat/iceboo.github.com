@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="demo">
+			{{fullname}}
+			<br />
+		</div>
+		
+		<script type="text/javascript">
+			var data = {
+				first :'Foo',
+				last : 'bar',
+				fullname :'Foo bar'
+			}
+			
+			/* 命令式的 */
+			var vm = new Vue({
+				el:'#demo',
+				data:data,				
+			})
+			vm.$watch('first',function(newVal){
+				this.fullname = newVal +' '+ this.last
+			})
+			vm.$watch('last',function(val){
+				this.fullname = this.first + '' + val
+			})
+			
+			/* 并不如 computed计算属性 */
+			var vm = new Vue({
+				el:"#demo",
+				data:data,
+				computed:{
+					fullname:function(){
+						return this.first + "" +this.last
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

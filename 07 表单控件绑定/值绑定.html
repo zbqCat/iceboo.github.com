@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="../vue.min.js"></script>
+    </head>
+    <body>
+    <div id="demo">
+      <!-- 绑定到Vue的一个动态属性上，v-bind可以做到 -->
+      <input type="checkbox" v-model = 'toggle' v-bind:true-value='a' v-bind:false-value='b'></input>
+      <p>//选中 vm.toggle === vm.a</p>
+      <p>//取消选中 vm.toggle === vm.b</p>
+    </div>
+    </body>
+</html>

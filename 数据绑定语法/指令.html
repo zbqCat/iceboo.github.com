@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="example">
+			<p v-if='greeting'>{{msg}}</p>
+			<p v-if='show'>{{msg + 'show'}}</p>
+
+			<!-- 指令：两者相同，并且{{url}}在内部会转换成v-bind:href='url' -->
+			<a href="{{url}}">url-one</a>
+			<a v-bind:href='url'>url-two</a> 
+			
+			<br />
+			<!-- v-on指令，用于监听dom事件 -->
+			<button v-on:click = 'log(msg)'>btn</button>
+			<!-- // hello vue.js -->
+			
+			<br />
+			<!-- 缩写  v-bind和v-on -->
+			<button v-bind:disabled = 'disable'>可点击</button>
+			<button :disabled = 'yes'>不可点击</button>
+			
+			<input type="button" value="点击弹出1" v-on:click='alert(1)' />
+			<input type="button" value="点击弹出2" @click='alert(2)' />
+		</div>
+
+	</body>
+
+	<script type="text/javascript">
+		var data = {
+			msg:'hello vue.js ',
+			greeting:false,
+			show:1,
+			url:'#example',
+			no:false,
+			yes:true,
+		}
+		
+		new Vue({
+			el:"#example",
+			data:data,
+			methods:{
+				log:function(name){
+					console.log(name)
+				},
+				alert:function(number){
+					alert(number)
+				}
+			}
+		})
+	</script>
+
+</html>

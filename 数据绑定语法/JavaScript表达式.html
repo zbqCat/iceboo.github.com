@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="demo">
+			<!-- 支持全功能JavaScript表达式 -->		
+			<p>{{number + 5}}</p>
+			<p>{{ok ? 'yes' : number }}</p>
+			<p>{{msg.split('').reverse().join('') }}</p>
+			
+			<!-- 一个限制是每个绑定的语句只能包含单个表达式，下列是无效的 -->
+			<p>{{if(ok){return msg} }}</p>
+		</div>
+		<script type="text/javascript">
+		var data = {
+			number:20,
+			ok: 0,
+			msg:'123456 !'
+		};
+			new Vue({
+				el:'#demo',
+				data:data,
+			})
+			
+		</script>
+	</body>
+</html>

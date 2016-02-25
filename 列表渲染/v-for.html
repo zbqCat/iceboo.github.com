@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="../vue.min.js"></script>
+    </head>
+    <body>
+        <ul id="example">
+          <li v-for='item in items'>
+            {{item.msg}}
+          </li>
+          <!-- 在v-for内有一个特殊变量$index 当前数组元素的索引 -->
+
+        <li v-for='item in items'>
+          {{parents}} -- {{$index}} -- {{item.msg ? item.msg : '0'}}
+        </li>
+        <br>
+        <li v-for='(index,item) in items'>
+          {{index}} -- {{item.msg}}
+        </li>
+        </ul>
+    </body>
+    <script type="text/javascript">
+      var data = {
+        items:[
+        {msg:'msg1'},
+        {msg:'msg2'},
+        ],
+        parents:'parents'
+      }
+      var vm = new Vue({
+        el:'#example',
+        data:data,
+        created:function(){
+        	console.log(this.parents,this.items)
+        }
+      })
+    </script>
+</html>
